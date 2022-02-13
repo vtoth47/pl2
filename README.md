@@ -14,3 +14,4 @@ https://fleming.maps.arcgis.com/home/item.html?id=30579e1949dc43c2a992a23e4e1305
 
 3 - REST API
 https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/tree_collection_database/FeatureServer
+for the REST API to work, need a token. Add ?token=.... to the end of the URL.
