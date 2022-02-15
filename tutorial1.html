@@ -13,7 +13,10 @@
     
     <script>
     require(["esri/config","esri/Map", "esri/views/MapView"], function (esriConfig,Map, MapView) {
+    esriConfig.apiKey = "AAPK08d1e927422346eda75df8549b43cac87ZlkvAbUNLArlCN3UILbNtLq3LoFG_CFtR-kvMXCw5KA2ArtynQahbdYVe0cH9fE";
 
+    const map = new Map({
+      basemap: "arcgis-topographic" // Basemap layer service
     });
     </script>
     
