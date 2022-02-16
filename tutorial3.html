@@ -52,6 +52,8 @@
           nextBasemap: "arcgis-imagery"
         });
         
+        view.ui.add(basemapToggle,"bottom-right");
+        
         // Add a graphic layer
         const graphicsLayer = new GraphicsLayer();
           map.add(graphicsLayer);
