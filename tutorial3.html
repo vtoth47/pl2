@@ -27,7 +27,9 @@
                "esri/views/MapView",
                "esri/Graphic",
                "esri/layers/GraphicsLayer"
-              ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+               "esri/widgets/BasemapToggle",
+               "esri/widgets/BasemapGallery"
+              ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, BasemapToggle, BasemapGallery) {
 
         // API key:
         esriConfig.apiKey = "AAPK08d1e927422346eda75df8549b43cac87ZlkvAbUNLArlCN3UILbNtLq3LoFG_CFtR-kvMXCw5KA2ArtynQahbdYVe0cH9fE";
@@ -39,49 +41,49 @@
         // Create Map View:
         const view = new MapView({
           map: map,
-          center: [-118.805, 34.027], // Longitude, latitude
+          center: [-104.494, 30.588], // Longitude, latitude
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         }); 
+        
+        // toggle for switching to a different base map
+        const basemapToggle = new BasemapToggle({
+          view: view,
+          nextBasemap: "arcgis-imagery"
+        });
         
         // Add a graphic layer
         const graphicsLayer = new GraphicsLayer();
           map.add(graphicsLayer);
         
-        // Add a point graphic
-        const point = { //Create a point
-            type: "point",
-            longitude: -118.80657463861,
-            latitude: 34.0005930608889
-         };
-        const simpleMarkerSymbol = {
-            type: "simple-marker",
-            color: [226, 119, 40],  // Orange
-            outline: {
-                color: [255, 255, 255], // White
-                width: 1
-            }
-        };
-        
-        // add the above points to the map:
-        const pointGraphic = new Graphic({
-            geometry: point,
-            symbol: simpleMarkerSymbol
-        });
-        graphicsLayer.add(pointGraphic);
         
         // Create a line geometry
        const polyline = {
           type: "polyline",
           paths: [
-              [-118.821527826096, 34.0139576938577], //Longitude, latitude
-              [-118.814893761649, 34.0080602407843], //Longitude, latitude
-              [-118.808878330345, 34.0016642996246]  //Longitude, latitude
+              [-104.4968891,30.5962891],
+              [-104.4995928,30.598173],
+              [-104.5034122,30.5985055],
+              [-104.5066738,30.5972865],
+              [-104.5088625,30.5952178],
+              [-104.5090771,30.5913389],
+              [-104.5073175,30.5880141],
+              [-104.5003223,30.5825093],
+              [-104.4931126,30.5782974],
+              [-104.4850874,30.583396],
+              [-104.478693,30.5897873],
+              [-104.4780064,30.5936293],
+              [-104.4794226,30.5965846],
+              [-104.4820404,30.5982838],
+              [-104.4856882,30.5989118],
+              [-104.4900227,30.5967324],
+              [-104.4938421, 30.5947376],
+              [-104.4968891, 30.5962891]
           ]
        };
        const simpleLineSymbol = {
           type: "simple-line",
-          color: [226, 119, 40], // Orange
+          color: [255, 0, 154], // pink
           width: 2
        };
        
@@ -96,21 +98,34 @@
        const polygon = {
           type: "polygon",
           rings: [
-              [-118.818984489994, 34.0137559967283], //Longitude, latitude
-              [-118.806796597377, 34.0215816298725], //Longitude, latitude
-              [-118.791432890735, 34.0163883241613], //Longitude, latitude
-              [-118.79596686535, 34.008564864635],   //Longitude, latitude
-              [-118.808558110679, 34.0035027131376]  //Longitude, latitude
+              [-104.4968891,30.5962891],
+              [-104.4995928,30.598173],
+              [-104.5034122,30.5985055],
+              [-104.5066738,30.5972865],
+              [-104.5088625,30.5952178],
+              [-104.5090771,30.5913389],
+              [-104.5073175,30.5880141],
+              [-104.5003223,30.5825093],
+              [-104.4931126,30.5782974],
+              [-104.4850874,30.583396],
+              [-104.478693,30.5897873],
+              [-104.4780064,30.5936293],
+              [-104.4794226,30.5965846],
+              [-104.4820404,30.5982838],
+              [-104.4856882,30.5989118],
+              [-104.4900227,30.5967324],
+              [-104.4938421, 30.5947376],
+              [-104.4968891, 30.5962891]
           ]
        };
 
        const simpleFillSymbol = {
           type: "simple-fill",
-          color: [227, 139, 79, 0.8],  // Orange, opacity 80%
-          outline: {
-              color: [255, 255, 255],
-              width: 1
-          }
+          color: [255, 0, 154, 0.2],  // pink, opacity 20%
+         // outline: {
+         //     color: [255, 255, 255],
+         //     width: 1
+        //  }
        };        
        
         // add a pop up
@@ -120,7 +135,7 @@
        }
        const attributes = {
           Name: "Graphic",
-          Description: "I am a polygon"
+          Description: "I love Valentine, TX"
        } 
         
         
