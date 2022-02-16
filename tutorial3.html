@@ -35,7 +35,7 @@
         esriConfig.apiKey = "AAPK08d1e927422346eda75df8549b43cac87ZlkvAbUNLArlCN3UILbNtLq3LoFG_CFtR-kvMXCw5KA2ArtynQahbdYVe0cH9fE";
 
         const map = new Map({
-          basemap: "arcgis-imagery" // Basemap layer service
+          basemap: "hybrid" // Basemap layer service
         });
 
         // Create Map View:
@@ -49,7 +49,7 @@
         // toggle for switching to a different base map
         const basemapToggle = new BasemapToggle({
           view: view,
-          nextBasemap: "hybrid"
+          nextBasemap: "topo-vector"
         });
         
         view.ui.add(basemapToggle,"bottom-right");
